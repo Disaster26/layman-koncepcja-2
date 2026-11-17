@@ -237,7 +237,7 @@ td.l{text-align:right;white-space:nowrap}
     </div>
   </header>
 </div>
-<script>(function(){var g=document.querySelector(".gora");function u(){document.documentElement.style.setProperty("--gh",g.offsetHeight+"px")}u();addEventListener("resize",u)})()</script>
+<script>(function(){var g=document.querySelector(".gora"),r=document.documentElement;if("ResizeObserver"in window){new ResizeObserver(function(e){var b=e[0].borderBoxSize;r.style.setProperty("--gh",Math.round(b&&b[0]?b[0].blockSize:e[0].contentRect.height)+"px")}).observe(g)}})()</script>
 
 <main id="top">
 <section class="hero">
