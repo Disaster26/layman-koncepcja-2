@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Layman Elbląg - hurtownia płyt meblowych, autoryzowany przedstawiciel Swiss Krono</title>
+<meta name="description" content="Płyty laminowane i blaty Swiss Krono z numerem dekoru i strukturą, sklejka, HDF, MDF, obrzeża i okucia. Firma Handlowa Layman, ul. Malborska 91b, Elbląg.">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" type="image/png" href="img/logo.png">
+<link rel="preload" href="fonts/barlow-600-r.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/barlow-400-r.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="img/hero-t480.webp" imagesrcset="img/hero-t480.webp 480w, img/hero-t640.webp 640w, img/hero-t800.webp 800w" imagesizes="60vw" media="(max-width:760px)" fetchpriority="high">
+<link rel="preload" as="image" href="img/hero-1440.webp" imagesrcset="img/hero-960.webp 960w, img/hero-1440.webp 1440w, img/hero-2000.webp 2000w" imagesizes="100vw" media="(min-width:761px)" fetchpriority="high">
+<style>
+@font-face{font-family:Barlow;src:url(fonts/barlow-400-r.woff2) format("woff2");font-weight:400;font-display:swap;unicode-range:U+0020-007E,U+00A0-00FF,U+2013-2014,U+2018-201E,U+2022,U+2026,U+20AC}
+@font-face{font-family:Barlow;src:url(fonts/barlow-400-pl.woff2) format("woff2");font-weight:400;font-display:swap;unicode-range:U+0104-0107,U+0118-0119,U+0141-0144,U+015A-015B,U+0179-017C}
+@font-face{font-family:Barlow;src:url(fonts/barlow-600-r.woff2) format("woff2");font-weight:600;font-display:swap;unicode-range:U+0020-007E,U+00A0-00FF,U+2013-2014,U+2018-201E,U+2022,U+2026,U+20AC}
+@font-face{font-family:Barlow;src:url(fonts/barlow-600-pl.woff2) format("woff2");font-weight:600;font-display:swap;unicode-range:U+0104-0107,U+0118-0119,U+0141-0144,U+015A-015B,U+0179-017C}
+:root{--red:#d71a28;--red-d:#b5121f;--ink:#1f2124;--mut:#50545a;--line:#dfe3e8;--gray:#f1f3f5;--gray2:#e6e9ed;--dark:#1d2126;--hh:64px;--wrap:min(1480px,calc(100% - 48px))}
+@media (min-width:2100px){:root{--wrap:min(1760px,calc(100% - 120px))}}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--hh) + 52px);-webkit-text-size-adjust:100%}
+body{margin:0;font-family:Barlow,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:17px;line-height:1.5;color:var(--ink);background:#fff;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+h1,h2,h3{line-height:1.12;margin:0 0 .45em;font-weight:600;letter-spacing:-.01em}
+h2{font-size:clamp(28px,2.6vw,42px)}
+h3{font-size:19px}
+p{margin:0 0 1em}
+.wrap{width:var(--wrap);margin-inline:auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:12px 24px;border:0;border-radius:4px;background:var(--red);color:#fff;font:600 17px/1.2 Barlow,system-ui,sans-serif;text-decoration:none;cursor:pointer;transition:background .15s}
+.btn:hover{background:var(--red-d)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #1d6fd6;outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.przyklad{display:inline-block;font-size:13px;font-weight:600;color:#7a4b00;background:#fff1cc;border-radius:3px;padding:2px 7px;vertical-align:middle}
+/* pasek ogloszen + naglowek */
+.gora{position:sticky;top:0;z-index:50}
+.ogl{background:var(--red);color:#fff;font-size:15px}
+.ogl-in{display:flex;align-items:center;gap:12px;min-height:40px;padding:6px 0}
+.ogl b{font-weight:600}
+.ogl .przyklad{background:#fff;color:var(--ink);flex:none}
+.ogl[data-typ=promocja]{background:#0f5f3a}
+.ogl[data-typ=wyprzedaz]{background:#1d2126}
+.top{background:#fff;border-bottom:1px solid var(--line)}
+.top-in{display:flex;align-items:center;gap:24px;height:var(--hh)}
+.logo img{height:46px;width:auto}
+.nav{display:flex;align-items:center;gap:26px;margin-left:auto}
+.nav a{text-decoration:none;font-weight:600;font-size:16px;white-space:nowrap;padding:8px 0;border-bottom:2px solid transparent}
+.nav a:hover{border-color:var(--red)}
+.nav .nav-b2b{padding:10px 18px;border:2px solid var(--ink);border-radius:4px}
+.nav .nav-b2b:hover{background:var(--ink);color:#fff}
+.burger{display:none;margin-left:auto;width:48px;height:48px;border:0;background:none;cursor:pointer;padding:12px}
+.burger span{display:block;height:2px;background:var(--ink);margin:5px 0}
+@media (max-width:1100px){
+ .burger{display:block}
+ .nav{position:fixed;inset:calc(var(--hh) + 40px) 0 auto 0;flex-direction:column;align-items:stretch;gap:0;background:#fff;border-bottom:1px solid var(--line);padding:8px 24px 20px;display:none}
+ .nav.otw{display:flex}
+ .nav a{padding:14px 0;border-bottom:1px solid var(--line)}
+ .nav .nav-b2b{margin-top:14px;text-align:center}
+}
+/* hero */
+.hero{position:relative;min-height:calc(100svh - var(--gh,104px));display:flex;align-items:flex-start;overflow:hidden;background:#cfd8e3}
+.hero picture,.hero-img{position:absolute;inset:0;width:100%;height:100%}
+.hero-img{object-fit:cover;object-position:50% 100%}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(255,255,255,.9) 0%,rgba(255,255,255,.72) 34%,rgba(255,255,255,0) 58%)}
+.hero-in{position:relative;z-index:2;padding:clamp(28px,5vh,64px) 0 clamp(200px,32vh,420px)}
+.hero h1{font-size:clamp(32px,3vw,56px);max-width:30ch;margin-bottom:16px}
+.hero .lead{font-size:clamp(17px,1.3vw,20px);max-width:54ch;color:#2a2d31;margin-bottom:24px}
+.szukaj{display:flex;gap:10px;max-width:640px;background:#fff;border:1px solid var(--line);border-radius:6px;padding:8px;box-shadow:0 10px 30px rgba(20,30,45,.14)}
+.szukaj label{flex:1;display:flex;flex-direction:column;justify-content:center;padding:0 8px;min-width:0}
+.szukaj label span{font-size:13px;font-weight:600;color:var(--mut)}
+.szukaj input{border:0;font:400 18px/1.3 Barlow,system-ui,sans-serif;padding:4px 0;color:var(--ink);background:none;min-width:0;width:100%}
+.szukaj input:focus{outline:none}
+.szukaj:focus-within{border-color:var(--ink)}
+.hero-pod{margin:14px 0 0;font-size:15px;color:#2a2d31;font-weight:600}
+@media (max-width:760px){
+ .hero::before{background:linear-gradient(180deg,rgba(255,255,255,.9) 0%,rgba(255,255,255,.78) 40%,rgba(255,255,255,0) 60%)}
+ .hero-in{padding:22px 0 clamp(150px,30svh,250px)}
+ .hero h1{font-size:clamp(28px,8.2vw,36px)}
+ .hero .lead{margin-bottom:24px}
+ .szukaj{flex-direction:column;padding:10px}
+ .szukaj label{padding:4px 6px 8px}
+ .szukaj .btn{width:100%}
+}
+/* stojak plyt - motyw z logo */
+.stojak{display:inline-block;width:34px;height:26px;flex:none;color:var(--ink)}
+.stojak path{fill:none;stroke:currentColor;stroke-width:2.4;stroke-linejoin:round}
+/* sekcje */
+.sek{padding:clamp(56px,7vw,104px) 0}
+.sek-g{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:8px 40px;margin-bottom:28px}
+.sek-g p{max-width:62ch;color:var(--mut);margin:0}
+.sek-g h2{margin:0;display:flex;align-items:center;gap:14px}
+.szary{background:var(--gray)}
+/* katalog dekorow */
+.zakl{display:flex;gap:0;border-bottom:2px solid var(--line);margin-bottom:20px;overflow-x:auto}
+.zakl button{font:600 17px/1.2 Barlow,system-ui,sans-serif;background:none;border:0;padding:14px 20px;margin-bottom:-2px;border-bottom:3px solid transparent;cursor:pointer;color:var(--mut);white-space:nowrap}
+.zakl button[aria-selected=true]{color:var(--ink);border-color:var(--red)}
+.zakl small{font-weight:400;color:var(--mut)}
+.filtry{display:grid;grid-template-columns:minmax(0,2fr) repeat(3,minmax(0,1fr));gap:12px;margin-bottom:14px}
+.pole{display:flex;flex-direction:column;gap:4px;font-size:14px;font-weight:600;color:var(--mut)}
+.pole input,.pole select{font:400 17px/1.2 Barlow,system-ui,sans-serif;color:var(--ink);background:#fff;border:1px solid #b9c0c8;border-radius:4px;height:48px;padding:0 12px;width:100%}
+.wynik{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:15px;color:var(--mut);margin:6px 0 18px}
+.wynik b{color:var(--ink)}
+.siatka{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:16px;list-style:none;margin:0;padding:0;min-height:400px}
+.dek{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-left:5px solid var(--ink);border-radius:2px;overflow:hidden}
+.dek img{aspect-ratio:1;width:100%;object-fit:cover;background:var(--gray2)}
+.dek-t{padding:10px 12px 0;flex:1}
+.dek-k{font-weight:600;font-size:18px;display:block}
+.dek-n{display:block;line-height:1.25}
+.dek-s{display:block;font-size:14px;color:var(--mut);margin-top:4px}
+.dek a{display:flex;align-items:center;justify-content:space-between;gap:6px;margin:10px 12px 12px;padding:9px 10px;border:1px solid var(--ink);border-radius:3px;text-decoration:none;font-weight:600;font-size:14px;line-height:1.15}
+.dek a:hover{background:var(--ink);color:#fff}
+.dek a svg{width:14px;height:14px;flex:none;fill:none;stroke:currentColor;stroke-width:2}
+.wiecej{display:flex;justify-content:center;margin-top:28px}
+.wiecej .btn{background:#fff;color:var(--ink);border:2px solid var(--ink)}
+.wiecej .btn:hover{background:var(--ink);color:#fff}
+.brak{padding:30px 0;color:var(--mut)}
+.zrodlo{font-size:14px;color:var(--mut);margin-top:22px}
+@media (max-width:520px){.zakl button{flex:1;padding:12px 6px;font-size:16px}.zakl small{display:block;font-size:14px}}
+@media (max-width:900px){.filtry{grid-template-columns:1fr 1fr}.filtry .pole:first-child{grid-column:1/-1}}
+@media (max-width:420px){.siatka{grid-template-columns:1fr 1fr;gap:10px}.dek-t{padding:8px 9px 0}.dek a{margin:8px 9px 10px}.dek-k{font-size:16px}}
+/* wlasny asortyment */
+.mag{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:0 48px;border-top:2px solid var(--ink)}
+.mag-g{padding:20px 0 22px;border-bottom:1px solid var(--line)}
+.mag-g h3{margin:2px 0 4px}
+.mag-g ul{margin:0;padding:0;list-style:none;font-size:16px;color:var(--mut)}
+.mag-g li{display:inline}
+.mag-g li:not(:last-child)::after{content:", "}
+/* b2b */
+.ciemna{background:var(--dark);color:#e9ecef}
+.ciemna .sek-g p{color:#b9c0c8}
+.ciemna .stojak{color:#fff}
+.b2b{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.4fr);gap:clamp(24px,3vw,48px);align-items:start}
+.b2b-pkt{margin:0;padding:0;list-style:none}
+.b2b-pkt li{padding:14px 0;border-top:1px solid #3a4048}
+.b2b-pkt b{display:block;color:#fff;font-size:18px}
+.b2b-pkt span{color:#b9c0c8}
+.okno{background:#fff;color:var(--ink);border-radius:6px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.okno-pas{display:flex;align-items:center;gap:12px;padding:10px 16px;background:var(--gray);border-bottom:1px solid var(--line);font-size:14px;color:var(--mut)}
+.okno-pas img{height:26px;width:auto}
+.okno-pas .przyklad{margin-left:auto}
+.okno-in{display:grid;grid-template-columns:240px minmax(0,1fr)}
+.logowanie{padding:20px;border-right:1px solid var(--line);background:#fafbfc}
+.logowanie h3{font-size:17px}
+.logowanie .pole{margin-bottom:10px}
+.logowanie .pole input{height:42px;background:#f1f3f5}
+.logowanie .btn{width:100%;min-height:44px;opacity:.55;cursor:not-allowed}
+.logowanie p{font-size:14px;color:var(--mut);margin:12px 0 0}
+.lista{padding:16px 20px 20px;min-width:0}
+.lista-g{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-bottom:10px;font-size:15px}
+.tab{overflow-x:auto;position:relative}
+table{border-collapse:collapse;width:100%;font-size:15px;min-width:620px}
+th{text-align:left;font-weight:600;color:var(--mut);font-size:13px;padding:8px 8px;border-bottom:2px solid var(--line);white-space:nowrap}
+td{padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:middle}
+td.l{text-align:right;white-space:nowrap}
+.prod{display:flex;align-items:center;gap:10px;min-width:220px}
+.prod img{width:40px;height:40px;object-fit:cover;border-radius:2px;flex:none}
+.prod a{font-size:13px;color:#14508f}
+.stan{font-weight:600;white-space:nowrap}
+.stan.zero{color:#9b2c12}
+.stan.ok{color:#0f5f3a}
+.ilosc{width:64px;height:38px;border:1px solid #b9c0c8;border-radius:3px;font:400 16px Barlow,system-ui,sans-serif;padding:0 8px}
+.uwaga{display:block;font-size:12px;color:#9b2c12;font-weight:600;max-width:150px;line-height:1.2;margin-top:3px}
+@media (max-width:700px){.tab{overflow:visible}table{min-width:0}thead{display:none}table,tbody{display:block}tr{display:grid;grid-template-columns:auto auto 1fr;align-items:start;gap:8px 16px;padding:14px 0;border-bottom:1px solid var(--line)}td{border:0;padding:0}td:first-child{grid-column:1/-1}td.l{text-align:left}.prod{min-width:0}.okno-pas{flex-wrap:wrap}.okno-pas .przyklad{margin-left:0}}
+@media (max-width:1000px){.b2b{grid-template-columns:minmax(0,1fr)}.okno-in{grid-template-columns:minmax(0,1fr)}.logowanie{border-right:0;border-bottom:1px solid var(--line)}}
+/* panel ogloszen */
+.panel{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:start}
+.panel-form{background:#fff;border:1px solid var(--line);border-top:4px solid var(--ink);padding:22px;border-radius:2px}
+.panel-form .pole{margin-bottom:14px}
+.typy{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px;padding:0;border:0}
+.typy legend{font-size:14px;font-weight:600;color:var(--mut);margin-bottom:6px;padding:0}
+.typy label{display:flex;align-items:center;gap:6px;border:1px solid #b9c0c8;border-radius:4px;padding:10px 14px;cursor:pointer;font-weight:600;font-size:15px}
+.typy input{accent-color:var(--red);width:18px;height:18px;margin:0}
+.panel-ok{margin:12px 0 0;font-weight:600;color:#0f5f3a;min-height:1.5em}
+.panel-txt ol{margin:0 0 16px;padding-left:20px}
+.panel-txt li{margin-bottom:6px}
+@media (max-width:900px){.panel{grid-template-columns:1fr}}
+/* wyprzedaz */
+.azg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:0;border:1px solid var(--line);background:#fff;align-items:center}
+.azg img{width:100%;max-height:320px;object-fit:contain;padding:20px}
+.azg-t{padding:clamp(22px,3vw,44px)}
+.azg-t h2{font-size:clamp(26px,2.2vw,36px)}
+.azg-t p{color:var(--mut)}
+@media (max-width:760px){.azg{grid-template-columns:1fr}.azg img{max-height:240px}}
+/* kontakt */
+.kont{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:clamp(24px,4vw,56px)}
+.kont-tel a{font-size:clamp(28px,2.6vw,38px);font-weight:600;text-decoration:none}
+.kont h3{margin-top:22px;font-size:17px}
+.kont ul{list-style:none;margin:0;padding:0}
+.kont li{margin-bottom:6px}
+.kont li a{text-decoration:none;font-weight:600}
+.kont li a:hover{text-decoration:underline}
+.godz{display:grid;grid-template-columns:auto 1fr;gap:4px 18px;margin:14px 0 0}
+.godz dt{font-weight:600}
+.godz dd{margin:0}
+.mapa{min-height:380px;background:var(--gray2);border-radius:2px;overflow:hidden}
+.mapa iframe{display:block;width:100%;height:100%;min-height:380px;border:0}
+@media (max-width:900px){.kont{grid-template-columns:1fr}}
+/* stopka */
+.stopka{background:var(--gray);border-top:1px solid var(--line);padding:32px 0 26px;font-size:15px;color:var(--mut)}
+.stopka-in{display:grid;grid-template-columns:auto 1fr auto;gap:18px 40px;align-items:start}
+.stopka img{height:40px;width:auto;margin-bottom:8px}
+.stopka p{margin:0}
+.stopka-uw{grid-column:1/-1;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;border-top:1px solid var(--line);padding-top:16px;font-size:14px}
+@media (max-width:760px){.stopka-in{grid-template-columns:1fr 1fr}.stopka-in>div:first-child{grid-column:1/-1}}
+.wylinka-badge{display:inline-flex;align-items:center;gap:.4em;color:inherit;text-decoration:none;font-size:.875em;line-height:1;opacity:.85}
+.wylinka-badge:hover,.wylinka-badge:focus-visible{opacity:1}
+.wylinka-badge:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:2px}
+.wylinka-badge svg{width:18px;height:18px;flex:none;overflow:visible}
+.wylinka-badge b{font-weight:600}
+.wylinka-badge .wy-old{opacity:.45;transform-origin:40px 30px;transition:transform .32s cubic-bezier(.3,.7,.4,1),opacity .32s ease-out}
+.wylinka-badge .wy-pod{opacity:0;transition:opacity .2s ease-out .08s}
+.wylinka-badge:hover .wy-old,.wylinka-badge:focus-visible .wy-old{transform:translate(9px,7px) rotate(9deg);opacity:0}
+.wylinka-badge:hover .wy-pod,.wylinka-badge:focus-visible .wy-pod{opacity:1}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.wylinka-badge .wy-old,.wylinka-badge .wy-pod{transition:none}.wylinka-badge:hover .wy-old,.wylinka-badge:focus-visible .wy-old{transform:none;opacity:.45}.wylinka-badge:hover .wy-pod,.wylinka-badge:focus-visible .wy-pod{opacity:0}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="stojak" viewBox="0 0 34 26"><path d="M2 5 9 2v22l-7-3zM12 5l7-3v22l-7-3zM22 5l7-3v22l-7-3z"/></symbol><symbol id="zew" viewBox="0 0 16 16"><path d="M6 3h7v7M13 3 4 12"/></symbol></defs></svg>
+
+<div class="gora">
+  <div class="ogl" id="ogl" data-typ="komunikat" role="status">
+    <div class="wrap ogl-in"><span class="przyklad">przykład</span><span id="oglTxt"><b>Czwartek 19.11:</b> salon i magazyn nieczynne. Zapraszamy w piątek od 7:00.</span></div>
+  </div>
+  <header class="top">
+    <div class="wrap top-in">
+      <a class="logo" href="#top" aria-label="Layman - strona główna"><img src="img/logo-s.webp" width="232" height="92" alt="Layman ... do mebli i budownictwa!"></a>
+      <nav class="nav" id="nav" aria-label="Menu">
+        <a href="#dekory">Dekory Swiss Krono</a>
+        <a href="#magazyn">Nasz magazyn</a>
+        <a href="#wyprzedaz">Wyprzedaż</a>
+        <a href="#kontakt">Kontakt</a>
+        <a class="nav-b2b" href="#b2b">Logowanie B2B</a>
+      </nav>
+      <button class="burger" id="burger" type="button" aria-label="Otwórz menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+</div>
+<script>(function(){var g=document.querySelector(".gora");function u(){document.documentElement.style.setProperty("--gh",g.offsetHeight+"px")}u();addEventListener("resize",u)})()</script>
+
+<main id="top">
+<section class="hero">
+  <picture>
+    <source media="(max-width:760px)" srcset="img/hero-t480.webp 480w, img/hero-t640.webp 640w, img/hero-t800.webp 800w" sizes="60vw">
+    <img class="hero-img" src="img/hero-1440.webp" srcset="img/hero-960.webp 960w, img/hero-1440.webp 1440w, img/hero-2000.webp 2000w" sizes="100vw" width="2000" height="1100" fetchpriority="high" alt="Siedziba firmy Layman przy ul. Malborskiej 91b w Elblągu, na dachu szyld Swiss Krono - autoryzowany przedstawiciel">
+  </picture>
+  <div class="wrap hero-in">
+    <h1>Hurtownia płyt meblowych w Elblągu - autoryzowany przedstawiciel Swiss Krono</h1>
+    <p class="lead">Płyty laminowane i blaty z numerem dekoru i strukturą, sklejka, HDF, MDF, obrzeża i okucia. Malborska 91b, pon-pt 7:00-16:00.</p>
+    <form class="szukaj" id="szukajHero" action="#dekory" role="search">
+      <label><span>Szukaj dekoru: nazwa albo numer</span><input id="qHero" name="q" type="search" placeholder="np. D2609 albo Palermo" autocomplete="off"></label>
+      <button class="btn" type="submit">Szukaj</button>
+    </form>
+  </div>
+</section>
+
+<section class="sek" id="dekory">
+  <div class="wrap">
+    <div class="sek-g">
+      <h2><svg class="stojak" aria-hidden="true"><use href="#stojak"/></svg>Dekory Swiss Krono</h2>
+      <p>Każdy dekor z nazwą, numerem, strukturą i zdjęciem. Przycisk otwiera dokładnie ten dekor na stronie fabryki.</p>
+    </div>
+    <div class="zakl" role="tablist" aria-label="Rodzaj produktu">
+      <button role="tab" id="tabP" aria-selected="true" aria-controls="panelDek" data-t="p">Płyty laminowane <small id="cntP"></small></button>
+      <button role="tab" id="tabB" aria-selected="false" aria-controls="panelDek" data-t="b" tabindex="-1">Blaty kuchenne <small id="cntB"></small></button>
+    </div>
+    <div class="filtry">
+      <label class="pole">Nazwa lub numer<input id="q" type="search" placeholder="np. D1041, dąb, antracyt" autocomplete="off"></label>
+      <label class="pole">Rodzaj<select id="fR"><option value="">Wszystkie</option></select></label>
+      <label class="pole">Kolor<select id="fO"><option value="">Wszystkie</option><option>Jasne</option><option>Średnie</option><option>Ciemne</option></select></label>
+      <label class="pole">Struktura<select id="fS"><option value="">Wszystkie</option></select></label>
+    </div>
+    <div class="wynik" aria-live="polite"><span id="wynik">Wczytuję katalog...</span><span>Stan katalogu Swiss Krono: 17.11.2026</span></div>
+    <div id="panelDek" role="tabpanel" aria-labelledby="tabP"><ul class="siatka" id="siatka"></ul></div>
+    <div class="wiecej"><button class="btn" id="wiecej" type="button" hidden>Pokaż kolejne</button></div>
+    <p class="zrodlo">Dane i zdjęcia dekorów pochodzą z publicznego katalogu swisskrono.com. W gotowej stronie, gdy fabryka zmienia kolekcję, lista jest aktualizowana z ich katalogu, a dekory wycofane znikają.</p>
+  </div>
+</section>
+
+<section class="sek szary" id="magazyn">
+  <div class="wrap">
+    <div class="sek-g">
+      <h2><svg class="stojak" aria-hidden="true"><use href="#stojak"/></svg>Nasz magazyn</h2>
+      <p>Towar spoza fabryki Swiss Krono, który trzymamy na miejscu. Ceny i stany dla firm w panelu B2B.</p>
+    </div>
+    <div class="mag">
+      <div class="mag-g"><h3>Sklejka</h3><ul><li>suchotrwała</li><li>wodoodporna</li><li>szalunkowa</li><li>szkutnicza</li><li>antypoślizgowa</li><li>ST 250 x 125</li><li>ST 152,5 x 152,5</li><li>ST laser</li></ul></div>
+      <div class="mag-g"><h3>HDF i pilśnia</h3><ul><li>HDF surowy</li><li>biały</li><li>lakierowany</li><li>kolory</li><li>pilśnia surowa, biała, lakierowana</li></ul></div>
+      <div class="mag-g"><h3>MDF</h3><ul><li>surowy</li><li>laminowany 16-19 mm i 22-30 mm</li><li>na fronty</li><li>Finsa</li><li>BE.VELVET 19 mm</li></ul></div>
+      <div class="mag-g"><h3>Płyty fornirowane</h3><ul><li>FINSA 19 mm</li><li>płyta fornir 19 i 23 mm</li><li>MDF fornir 7, 11 i 20 mm</li><li>HDF fornir 4 mm</li></ul></div>
+      <div class="mag-g"><h3>OSB, QSB, płyta surowa</h3><ul><li>OSB</li><li>QSB</li><li>płyta surowa 280 x 207 i inne formaty</li><li>płyta stolarska</li></ul></div>
+      <div class="mag-g"><h3>Obrzeża i HPL</h3><ul><li>ABS Schilsner</li><li>akrylowe</li><li>fornir</li><li>HPL do blatów</li><li>okleina HPL</li><li>płyta akrylowa</li></ul></div>
+      <div class="mag-g"><h3>Okucia i dodatki</h3><ul><li>Hettich</li><li>GTV</li><li>listwy do blatów</li><li>oświetlenie LED</li><li>nóżki i cokoły</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="sek ciemna" id="b2b">
+  <div class="wrap">
+    <div class="sek-g">
+      <h2><svg class="stojak" aria-hidden="true"><use href="#stojak"/></svg>Sklep B2B dla stolarzy</h2>
+      <p>Po zalogowaniu klient widzi stan magazynu i swoją cenę prosto z programu Sage.</p>
+    </div>
+    <div class="b2b">
+      <ul class="b2b-pkt">
+        <li><b>Stan na bieżąco</b><span>Zamawia 10, a na magazynie jest 9: system od razu podpowie, ile jest.</span></li>
+        <li><b>Cena klienta z Sage</b><span>Każdy widzi swoją cenę, tę samą, którą ma zapisaną w programie.</span></li>
+        <li><b>Dekor jednym kliknięciem</b><span>Przy płycie link do tego dekoru w katalogu Swiss Krono.</span></li>
+      </ul>
+      <div class="okno">
+        <div class="okno-pas"><img src="img/logo-s.webp" width="232" height="92" alt="" loading="lazy">Panel B2B<span class="przyklad">dane przykładowe, nie z Sage</span></div>
+        <div class="okno-in">
+          <form class="logowanie" onsubmit="return false">
+            <h3>Logowanie klienta</h3>
+            <label class="pole">Login<input type="text" value="stolarnia.przyklad" disabled></label>
+            <label class="pole">Hasło<input type="password" value="xxxxxxxx" disabled></label>
+            <button class="btn" type="button" disabled>Zaloguj</button>
+            <p>W podglądzie logowanie jest wyłączone. Obok widok po zalogowaniu.</p>
+          </form>
+          <div class="lista">
+            <div class="lista-g"><b>Zalogowano: Stolarnia Przykład</b><span>Ceny netto, Twoje warunki z Sage</span></div>
+            <div class="tab">
+              <table>
+                <thead><tr><th scope="col">Produkt</th><th scope="col">Stan</th><th scope="col" class="l">Twoja cena</th><th scope="col">Ilość</th></tr></thead>
+                <tbody>
+                  <tr><td><div class="prod"><img src="dek/d2609.webp" width="240" height="240" loading="lazy" alt=""><span>Płyta laminowana 18 mm 2800 x 2070<br><b>D2609 Dąb Palermo Jasny, MX</b><br><a href="https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/kolekcja-one-world/plyta-wiorowa-laminowana-p2/?product=000000000010109057" target="_blank" rel="noopener">dekor w Swiss Krono</a></span></div></td><td class="stan ok" data-stan="9">9 ark.</td><td class="l">195,00 zł/ark.</td><td><label class="sr" for="i1">Ilość D2609</label><input class="ilosc" id="i1" type="number" min="0" value="10" data-stan="9" data-j="ark."><span class="uwaga"></span></td></tr>
+                  <tr><td><div class="prod"><img src="dek/u164.webp" width="240" height="240" loading="lazy" alt=""><span>Płyta laminowana 18 mm 2800 x 2070<br><b>U164 Antracyt, PE</b><br><a href="https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/plyty-laminowane/kolekcja-one-world/plyta-wiorowa-laminowana-p2/?product=000000000010157696" target="_blank" rel="noopener">dekor w Swiss Krono</a></span></div></td><td class="stan ok">34 ark.</td><td class="l">178,00 zł/ark.</td><td><label class="sr" for="i2">Ilość U164</label><input class="ilosc" id="i2" type="number" min="0" value="4" data-stan="34" data-j="ark."><span class="uwaga"></span></td></tr>
+                  <tr><td><div class="prod"><img src="dek/d3274.webp" width="240" height="240" loading="lazy" alt=""><span>Blat kuchenny 38 mm 4100 x 600<br><b>D3274 Beton</b><br><a href="https://www.swisskrono.com/pl-pl/produkty/produkty-meblowe/blaty-kuchenne/kolekcja/blat-kuchenny-na-bazie-plyty-wiorowej-p2/?product=000000000010149733" target="_blank" rel="noopener">dekor w Swiss Krono</a></span></div></td><td class="stan ok">6 szt.</td><td class="l">412,00 zł/szt.</td><td><label class="sr" for="i3">Ilość D3274</label><input class="ilosc" id="i3" type="number" min="0" value="1" data-stan="6" data-j="szt."><span class="uwaga"></span></td></tr>
+                  <tr><td><div class="prod"><img src="img/k-hpl.webp" width="640" height="480" loading="lazy" alt=""><span>Obrzeże ABS Schilsner 22/0,8<br><b>U164 Antracyt</b></span></div></td><td class="stan ok">1 200 mb</td><td class="l">0,62 zł/mb</td><td><label class="sr" for="i4">Ilość obrzeże</label><input class="ilosc" id="i4" type="number" min="0" value="150" data-stan="1200" data-j="mb"><span class="uwaga"></span></td></tr>
+                  <tr><td><div class="prod"><img src="img/k-fornir.webp" width="600" height="450" loading="lazy" alt=""><span>Sklejka wodoodporna 18 mm<br><b>2500 x 1250</b></span></div></td><td class="stan zero">na zamówienie</td><td class="l">239,00 zł/ark.</td><td><label class="sr" for="i5">Ilość sklejka</label><input class="ilosc" id="i5" type="number" min="0" value="0" data-stan="0" data-j="ark."><span class="uwaga"></span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sek" id="ogloszenia">
+  <div class="wrap">
+    <div class="sek-g">
+      <h2><svg class="stojak" aria-hidden="true"><use href="#stojak"/></svg>Ogłoszenia dodaje Pan sam</h2>
+      <p>Zamknięte w czwartek, promocja, wyprzedaż: wpis zajmuje minutę i pojawia się w pasku na górze strony.</p>
+    </div>
+    <div class="panel">
+      <form class="panel-form" id="panel">
+        <label class="pole">Treść ogłoszenia<input id="pTxt" type="text" maxlength="140" value="Czwartek 19.11: salon i magazyn nieczynne. Zapraszamy w piątek od 7:00."></label>
+        <fieldset class="typy"><legend>Rodzaj</legend>
+          <label><input type="radio" name="typ" value="komunikat" checked> Komunikat</label>
+          <label><input type="radio" name="typ" value="promocja"> Promocja</label>
+          <label><input type="radio" name="typ" value="wyprzedaz"> Wyprzedaż</label>
+        </fieldset>
+        <label class="pole">Pokazuj do<input id="pDo" type="date" value="2026-11-19"></label>
+        <button class="btn" type="submit">Opublikuj na stronie</button>
+        <p class="panel-ok" id="pOk" aria-live="polite"></p>
+      </form>
+      <div class="panel-txt">
+        <h3>Jak to działa w gotowej stronie</h3>
+        <ol>
+          <li>Loguje się Pan do panelu z telefonu albo komputera.</li>
+          <li>Wpisuje treść, wybiera rodzaj i datę, do kiedy ma wisieć.</li>
+          <li>Pasek pokazuje się od razu, a po tej dacie znika sam.</li>
+        </ol>
+        <p>Promocje i wyprzedaże mogą mieć też zdjęcie i trafiać na listę na stronie głównej. Bez dzwonienia do informatyka.</p>
+        <p class="zrodlo">W podglądzie przycisk zmienia pasek tylko w Pana przeglądarce. Proszę spróbować.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sek szary" id="wyprzedaz">
+  <div class="wrap">
+    <div class="azg">
+      <img src="img/k-akcesoria.webp" width="640" height="480" loading="lazy" alt="Zawias meblowy z cichym domykiem z oferty akcesoriazagrosze.pl">
+      <div class="azg-t">
+        <h2>Wyprzedaż na akcesoriazagrosze.pl</h2>
+        <p>Resztki z magazynu i pozostałości po sklepie z akcesoriami w osobnym, prostym sklepie na Państwa domenie. Zdjęcie, cena, ilość. Sprzedane znika z listy samo.</p>
+        <p>Zamówienie przez formularz albo z płatnością online.</p>
+        <a class="btn" href="https://akcesoriazagrosze.pl/" target="_blank" rel="noopener">akcesoriazagrosze.pl</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sek" id="kontakt">
+  <div class="wrap">
+    <div class="sek-g"><h2><svg class="stojak" aria-hidden="true"><use href="#stojak"/></svg>Kontakt</h2></div>
+    <div class="kont">
+      <div>
+        <p class="kont-tel"><a href="tel:+48552354069">55 235 40 69</a></p>
+        <p>Firma Handlowa „Layman”<br>ul. Malborska 91b, 82-300 Elbląg<br><a href="mailto:sek@layman.com.pl">sek@layman.com.pl</a></p>
+        <dl class="godz">
+          <dt>Salon</dt><dd>pon-pt 7:00-16:00</dd>
+          <dt>Magazyn</dt><dd>pon-pt 7:00-15:00</dd>
+        </dl>
+        <h3>Płyty, blaty, HDF, MDF, OSB, obrzeża</h3>
+        <ul>
+          <li>Małgorzata Reszczyńska: <a href="tel:+48609022064">609 022 064</a></li>
+          <li>Grzegorz Puchalski: <a href="tel:+48601649362">601 649 362</a></li>
+        </ul>
+        <h3>Akcesoria meblowe</h3>
+        <ul><li><a href="mailto:aks@layman.com.pl">aks@layman.com.pl</a>, <a href="tel:+48609022068">609 022 068</a></li></ul>
+      </div>
+      <div class="mapa" id="mapa" data-src="https://maps.google.com/maps?q=Layman%2C%20Malborska%2091b%2C%20Elbl%C4%85g&amp;z=16&amp;output=embed"></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="stopka">
+  <div class="wrap stopka-in">
+    <div>
+      <img src="img/logo-s.webp" width="232" height="92" alt="Layman" loading="lazy">
+      <p>Firma Handlowa „Layman” Mirosław Zemke<br>ul. Malborska 91b, 82-300 Elbląg</p>
+    </div>
+    <p><a href="#dekory">Dekory Swiss Krono</a><br><a href="#magazyn">Nasz magazyn</a><br><a href="#b2b">Sklep B2B</a></p>
+    <p><a href="#wyprzedaz">akcesoriazagrosze.pl</a><br><a href="#kontakt">Kontakt</a></p>
+    <div class="stopka-uw">
+      <span>© 2026 Layman. Podgląd koncepcji nowej strony. Ceny i stany w panelu B2B są przykładowe.</span>
+      <a class="wylinka-badge" href="https://wylinka.pl/?utm_source=layman.com.pl&amp;utm_medium=stopka&amp;utm_campaign=wykonanie" rel="noopener" title="Strona wykonana przez Wylinka"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false" fill="currentColor"><path d="M9.8 22.8l-1.2-7.9 2.2-3.7 15.5 4.6-.5 1.5-7.2 5.5 4.7 15.6 5-15.6 7 0 4.1 12.7-4.2-.9-2.6 1.8-.8-2.2-5.3 15.6-4.3 0 .4 .2-2.1 2.8-1.3-1.1 1.1-1.4-3.1 .2-.1-1.7 2.2-.1-5.7-16.5-4.8 .6-.8 3.1 0 .5-.3 .5 .8 2.2-1.6 .5-.4-1.3-.8 1.6-1.5-.8 .8-1.6-1.4 .6-.6-1.6 2.3-.8 .2-.4 1.3-4.8 5.9-.8-2.4-6.9zM15.2 13.7l-.1-.4-.4 .8-.1 .8 .1 1 .1 .4 .3 .7 .3-.9 .1-.7 0-.8z"/><path class="wy-pod" d="M37.1 49.8l-4.5-13.3 2.6-1.8 4.2 .9 .9 2.8 3-9.7 0-.5 .1-.8 3.2-8.4 .5-1 .6-1 .9-1.1 1.3-1 1.1-.7 1.4-.5 1.4-.3 .7 0 .9 0 1.2 .3 1.4 .6 .8 .5 .7 .7 .6 .7 .5 .9 .3 .9 .1 .9 0 .8-.2 .9-.5 .9-.5 .6-.7 .5-.7 .3-.1-.1 0-.1 .5-.5 .3-.7 .2-.5 0-.6-.1-.6-.3-.7-.4-.5-.4-.4-.5-.3-.6-.3-.7 0-.7 .1-.6 .1-.5 .4-.5 .5-.3 .5-.2 .7-.1 1.5-1.4 5.1-.8 3.3-.3 .7-.5 .7-6 17.5 1.9 .1-.1 1.7-3.1-.2 1.1 1.4-1.3 1.1-2.1-2.8 .4-.2z"/><path class="wy-old" d="M40.8 50l.4-.2-4.1 0-4.2-12.5 2.5-1.7 4.3 .9 .6 1.9 .6-1.6 0-.3 2.4-7.8 0-.5 .1-.8 3.2-8.4 .4-.8 .6-.9 .9-1.2 .9-.9 1.3-.8 1.4-.6 1.2-.3 1.4-.1 1.3 .1 .6 .2 .8 .3 1.1 .6 .9 .7 .7 .9 .5 .9 .3 .9 .1 1.1-.1 .9-.3 .9-.4 .7-.6 .7-.6 .4-.6 .2-.1-.1 0-.1 .5-.5 .3-.7 .2-.5 0-.5-.1-.6-.2-.6-.3-.5-.4-.5-.5-.3-.6-.3-.7-.1-.6 0-.6 .1-.6 .3-.6 .5-.3 .4-.2 .5-.1 .5-.1 1.5-1.4 5.1-.8 3.3-.3 .7-.5 .7-6 17.5 1.9 .1-.1 1.7-3.1-.2 1.1 1.4-1.3 1.1zM49.6 17.1l.6 1.7-1.5 1.9 .4 .4 1.8-2.1-.7-2.1zM48.1 28.3l.5 1.8-1.7 1.8 .4 .4 1.9-2-.6-2.2zM37.9 41.7l1.7-1.5-.4-.4-1.7 1.4zM42.6 38.7l-1.5 2.8 1.1 2-1.3 2.6 .5 .2 1.5-2.8-1.1-2 1.4-2.5z"/></svg><span>wykonanie: <b>Wylinka</b></span></a>
+    </div>
+  </div>
+</footer>
+<script src="app.js" defer></script>
+</body>
+</html>
