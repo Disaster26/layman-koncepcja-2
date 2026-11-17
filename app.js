@@ -14,7 +14,7 @@
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') zamknij(); });
 
   // Katalog dekorow
-  var dane = [], typ = 'p', ile = 24, KROK = 24;
+  var dane = [], typ = "p", ile = 36, KROK = 36;
   var siatka = $('siatka'), q = $('q'), fR = $('fR'), fO = $('fO'), fS = $('fS'), wiecej = $('wiecej'), wynik = $('wynik');
   function norm(s) { return (s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/ł/g, 'l').replace(/\s+/g, ''); }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
