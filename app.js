@@ -30,10 +30,15 @@
     opcje(fR, Object.keys(r).sort());
     opcje(fS, Object.keys(s).sort(function (a, b) { return a.localeCompare(b, 'pl'); }));
   }
+  var GR = { p: 'płyta laminowana', b: 'blat kuchenny', w: 'blat BLACK WOOD', v: 'MDF BE.VELVET antifingerprint' };
+  var NAZ = { p: 'Płyty laminowane', b: 'Blaty kuchenne', w: 'Blaty BLACK WOOD', v: 'MDF BE.VELVET' };
+  var KOL = ['p', 'b', 'w', 'v'];
+  function trafia(d, t) { return !t || norm(d.k + d.n + GR[d.t] + 'swisskrono').indexOf(t) > -1; }
+  function gdzieJest(t) { for (var i = 0; i < KOL.length; i++) { if (dane.some(function (d) { return d.t === KOL[i] && trafia(d, t); })) return KOL[i]; } return null; }
   function pasuje(d) {
     if (d.t !== typ) return false;
     var t = norm(q.value);
-    if (t && norm(d.k + d.n).indexOf(t) < 0 && norm(d.n).indexOf(t) < 0) return false;
+    if (!trafia(d, t)) return false;
     if (fR.value && d.r !== fR.value) return false;
     if (fO.value && d.o !== fO.value) return false;
     if (fS.value && d.s !== fS.value) return false;
@@ -41,57 +46,55 @@
   }
   function rysuj() {
     var z = dane.filter(pasuje);
-    var html = z.slice(0, ile).map(function (d) {
-      return '<li class="dek"><img src="dek/' + d.k.toLowerCase() + '.webp" width="240" height="240" loading="lazy" alt="Dekor ' + esc(d.k + ' ' + d.n) + '">' +
-        '<span class="dek-t"><span class="dek-k">' + esc(d.k) + '</span><span class="dek-n">' + esc(d.n) + '</span><span class="dek-s">Struktura: ' + esc(d.s || '-') + '</span></span>' +
-        '<a href="' + esc(d.u) + '" target="_blank" rel="noopener" aria-label="Zobacz w Swiss Krono: ' + esc(d.k + ' ' + d.n + ', struktura ' + d.s) + ' (nowa karta)">Zobacz w Swiss Krono<svg aria-hidden="true"><use href="#zew"/></svg></a></li>';
+    widoczne = z;
+    var html = z.slice(0, ile).map(function (d, i) {
+      return '<li class="dek"><button class="dek-o" type="button" data-i="' + i + '" aria-label="Karta dekoru ' + esc(d.k + ' ' + d.n) + '"><img src="dek/' + esc(d.i || d.k.toLowerCase()) + '.webp" width="240" height="240" loading="lazy" alt="' + esc(GR[d.t] + ' SWISS KRONO ' + d.k + ' ' + d.n) + '">' +
+        '<span class="dek-t"><span class="dek-k">' + esc(d.k) + '</span><span class="dek-n">' + esc(d.n) + '</span>' + (d.s ? '<span class="dek-s">Struktura: ' + esc(d.s) + '</span>' : '') + (d.x ? '<span class="dek-x">' + esc(d.x) + '</span>' : '') + '</span></button>' +
+        '<a href="' + esc(d.u) + '" target="_blank" rel="noopener" aria-label="Zobacz w SWISS KRONO: ' + esc(d.k + ' ' + d.n) + ' (nowa karta)">Zobacz w SWISS KRONO<svg aria-hidden="true"><use href="#zew"/></svg></a></li>';
     }).join('');
     siatka.innerHTML = html || '<li class="brak">Brak dekoru o takiej nazwie lub numerze. Proszę sprawdzić pisownię albo zadzwonić: 55 235 40 69.</li>';
     var n = z.length;
-    wynik.innerHTML = (typ === 'p' ? 'Płyty laminowane' : 'Blaty kuchenne') + ', pasujące pozycje: <b>' + n + '</b>';
+    wynik.innerHTML = NAZ[typ] + ' SWISS KRONO, pasujące pozycje: <b>' + n + '</b>';
     var reszta = n - ile;
     wiecej.hidden = reszta <= 0;
     if (reszta > 0) wiecej.textContent = 'Pokaż kolejne (' + Math.min(KROK, reszta) + ' z ' + reszta + ')';
   }
+  var widoczne = [];
   function odNowa() { ile = KROK; rysuj(); }
-  [q].forEach(function (el) { el.addEventListener('input', odNowa); });
+  q.addEventListener('input', function () {
+    var t = norm(q.value);
+    if (t && dane.length && !dane.some(function (d) { return d.t === typ && trafia(d, t); })) {
+      var g = gdzieJest(t); if (g && g !== typ) { fR.value = ''; fO.value = ''; fS.value = ''; ustawTyp(g); return; }
+    }
+    odNowa();
+  });
   [fR, fO, fS].forEach(function (el) { el.addEventListener('change', odNowa); });
   wiecej.addEventListener('click', function () { ile += KROK; rysuj(); });
-  var taby = [$('tabP'), $('tabB')];
+  var taby = [$('tabP'), $('tabB'), $('tabW'), $('tabV')];
   function ustawTyp(t, focus) {
     typ = t;
     taby.forEach(function (b) { var on = b.getAttribute('data-t') === t; b.setAttribute('aria-selected', on ? 'true' : 'false'); b.tabIndex = on ? 0 : -1; if (on && focus) b.focus(); });
-    $('panelDek').setAttribute('aria-labelledby', t === 'p' ? 'tabP' : 'tabB');
+    $('panelDek').setAttribute('aria-labelledby', 'tab' + t.toUpperCase());
     przygotujFiltry(); odNowa();
   }
   taby.forEach(function (b, i) {
     b.addEventListener('click', function () { ustawTyp(b.getAttribute('data-t')); });
     b.addEventListener('keydown', function (e) {
-      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { var n = taby[(i + 1) % 2]; ustawTyp(n.getAttribute('data-t'), true); }
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { var n = taby[(i + (e.key === 'ArrowRight' ? 1 : taby.length - 1)) % taby.length]; ustawTyp(n.getAttribute('data-t'), true); }
     });
   });
   $('szukajHero').addEventListener('submit', function (e) {
     e.preventDefault();
     q.value = $('qHero').value.trim();
     fR.value = ''; fO.value = ''; fS.value = '';
-    if (dane.length) {
-      // jesli brak w plytach, a jest w blatach - przelacz
-      var t = norm(q.value);
-      var wP = dane.some(function (d) { return d.t === 'p' && norm(d.k + d.n).indexOf(t) > -1; });
-      ustawTyp(wP || !t ? 'p' : 'b');
-    }
+    if (dane.length) { ustawTyp(gdzieJest(norm(q.value)) || 'p'); }
     $('dekory').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
   });
   function wczytaj() {
     fetch('dekory.json').then(function (r) { return r.json(); }).then(function (d) {
       dane = d;
-      $('cntP').textContent = '(' + d.filter(function (x) { return x.t === 'p'; }).length + ')';
-      $('cntB').textContent = '(' + d.filter(function (x) { return x.t === 'b'; }).length + ')';
-      if (q.value) {
-        var t = norm(q.value);
-        var wP = dane.some(function (x) { return x.t === 'p' && norm(x.k + x.n).indexOf(t) > -1; });
-        if (!wP) typ = 'b';
-      }
+      KOL.forEach(function (k) { $('cnt' + k.toUpperCase()).textContent = '(' + d.filter(function (x) { return x.t === k; }).length + ')'; });
+      if (q.value) { typ = gdzieJest(norm(q.value)) || typ; }
       ustawTyp(typ);
     }).catch(function () { wynik.textContent = 'Nie udało się wczytać katalogu.'; });
   }
@@ -99,6 +102,52 @@
     var io = new IntersectionObserver(function (w) { if (w[0].isIntersecting) { io.disconnect(); wczytaj(); } }, { rootMargin: '600px' });
     io.observe($('dekory'));
   } else { wczytaj(); }
+
+  // Linki z oferty i wpisow do konkretnej zakladki katalogu
+  Array.prototype.forEach.call(document.querySelectorAll('a[data-tab]'), function (a) {
+    a.addEventListener('click', function () {
+      var t = a.getAttribute('data-tab');
+      q.value = ''; fR.value = ''; fO.value = ''; fS.value = '';
+      typ = t;
+      if (dane.length) ustawTyp(t);
+    });
+  });
+
+  // Karta dekoru
+  var karta = $('karta');
+  var OPIS = {
+    p: function (d) { return 'Płyta wiórowa laminowana SWISS KRONO w dekorze ' + d.n + ' (' + d.k + ')' + (d.s ? ', struktura ' + d.s : '') + '. W hurtowni LAYMAN w Elblągu przytniemy ją na formatki i okleimy krawędzie.'; },
+    b: function (d) { return 'Blat kuchenny SWISS KRONO w dekorze ' + d.n + ' (' + d.k + ')' + (d.s ? ', struktura ' + d.s : '') + '. Blaty o grubości 28 i 38 mm w hurtowni LAYMAN, ul. Malborska 91b, Elbląg.'; },
+    w: function (d) { return 'Blat BLACK WOOD SWISS KRONO w dekorze ' + d.n + ' (' + d.k + '): ultracienki blat 12 mm z ciemną krawędzią płyty BLACK WOOD i laminatem HPL. Krawędzi nie trzeba oklejać.'; },
+    v: function (d) { return 'Płyta MDF BE.VELVET antifingerprint SWISS KRONO w kolorze ' + d.n + ' (' + d.k + '): ultramatowa powierzchnia, na której nie zostają ślady palców. Na fronty kuchenne, szafy i zabudowy.'; }
+  };
+  var TYT = { p: 'Płyta laminowana', b: 'Blat kuchenny', w: 'Blat BLACK WOOD', v: 'Płyta MDF BE.VELVET' };
+  var akt = null;
+  siatka.addEventListener('click', function (e) {
+    var b = e.target.closest('.dek-o'); if (!b) return;
+    var d = widoczne[+b.getAttribute('data-i')]; if (!d) return;
+    akt = d;
+    $('kartaH').textContent = TYT[d.t] + ' ' + d.n + ' ' + d.k + ' SWISS KRONO';
+    var im = $('kartaImg'); im.src = 'dek/' + (d.i || d.k.toLowerCase()) + '.webp'; im.alt = TYT[d.t] + ' SWISS KRONO ' + d.k + ' ' + d.n + ', Firma Handlowa Layman, Elbląg';
+    $('kartaOp').textContent = OPIS[d.t](d);
+    var w = [['Kod dekoru', d.k], ['Nazwa', d.n], ['Rodzaj', d.r], ['Struktura', d.s], ['Wymiary', d.x || (d.t === 'b' ? 'grubość 28 i 38 mm' : '')], ['Dostępność i cena', 'w sklepie B2B, stan z magazynu']];
+    $('kartaTab').innerHTML = w.filter(function (r) { return r[1]; }).map(function (r) { return '<tr><th scope="row">' + esc(r[0]) + '</th><td>' + esc(r[1]) + '</td></tr>'; }).join('');
+    $('kartaSk').href = d.u;
+    if (karta.showModal) karta.showModal(); else karta.setAttribute('open', '');
+  });
+  function zamknijKarte() { if (karta.close) karta.close(); else karta.removeAttribute('open'); }
+  $('kartaZ').addEventListener('click', zamknijKarte);
+  karta.addEventListener('click', function (e) { if (e.target === karta) zamknijKarte(); });
+  $('kartaZam').addEventListener('click', function () {
+    zamknijKarte();
+    if (akt) { var m = document.querySelector('#zam [name=mat]'); m.value = TYT[akt.t] + ' ' + akt.k + ' ' + akt.n; }
+  });
+
+  // Formularz ciecia (podglad - bez wysylki)
+  $('zam').addEventListener('submit', function (e) {
+    e.preventDefault();
+    $('zamOk').textContent = 'W podglądzie formularz niczego nie wysyła. W gotowej stronie zamówienie trafia na sek@layman.com.pl, a klient dostaje potwierdzenie mailem.';
+  });
 
   // B2B: ilosc wieksza niz stan
   Array.prototype.forEach.call(document.querySelectorAll('.ilosc'), function (inp) {
